@@ -1,9 +1,9 @@
-import { UserDto } from './dto/user.dto';
-import { returnUserObject } from './return-user.object';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from 'src/prisma.service';
 import { Prisma } from '@prisma/client';
 import { hash } from 'argon2';
+import { PrismaService } from 'src/prisma.service';
+import { UserDto } from './dto/user.dto';
+import { returnUserObject } from './return-user.object';
 
 @Injectable()
 export class UserService {
@@ -29,7 +29,7 @@ export class UserService {
       },
     });
 
-    if (!user) throw new Error('User not found');
+    if (!user) throw new NotFoundException('User not found');
 
     return user;
   }
@@ -41,7 +41,7 @@ export class UserService {
       },
     });
 
-    if (isSameUser) throw new Error('Email is alredy in use');
+    if (isSameUser) throw new NotFoundException('Email is alredy in use');
 
     const user = await this.byId(id);
 

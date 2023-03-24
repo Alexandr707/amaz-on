@@ -1,4 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { PaginationDto } from './dto/pagination.dto';
 
 @Injectable()
-export class PaginationService {}
+export class PaginationService {
+  getPagination(dto: PaginationDto, defaultPerpage = 30) {
+    const page = dto.page ? +dto.page : 1;
+    const perPage = dto.perPage ? +dto.perPage : defaultPerpage;
+
+    const skip = (page - 1) * perPage;
+
+    return { perPage, skip };
+  }
+}
