@@ -3,7 +3,15 @@ build
 dist
 node_modules
 
-.env
+front-end-amazon/.env
+front-end-amazon/.env.example
+front-end-amazon/.env.local
+front-end-amazon/.env.staging
+
+amazon-back/.env
+amazon-back/.env.example
+amazon-back/.env.local
+amazon-back/.env.staging
 
 # Logs
 logs
