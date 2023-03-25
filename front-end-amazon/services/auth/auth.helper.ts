@@ -8,14 +8,24 @@ enum TokenType {
   refresh = 'refreshToken',
 }
 
+export const getAccessToken = () => {
+  const accessToken = Cookie.get(TokenType.access);
+  return accessToken || null;
+};
+
+export const getUserFromStorage = () => {
+  return JSON.parse(localStorage.getItem('user') || '{}');
+};
+
 export const saveTokensStorage = (data: IToken) => {
   Cookie.set(TokenType.access, data.accessToken);
   Cookie.set(TokenType.refresh, data.refreshToken);
 };
 
-export const removeTokensStorage = () => {
+export const removeFromStorage = () => {
   Cookie.remove(TokenType.access);
   Cookie.remove(TokenType.refresh);
+  localStorage.removeItem('user');
 };
 
 export const saveToStorage = (data: IAuthResponse) => {
