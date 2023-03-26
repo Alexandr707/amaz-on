@@ -13,6 +13,11 @@ export const getAccessToken = () => {
   return accessToken || null;
 };
 
+export const getRefreshToken = () => {
+  const accessToken = Cookie.get(TokenType.refresh);
+  return accessToken || null;
+};
+
 export const getUserFromStorage = () => {
   return JSON.parse(localStorage.getItem('user') || '{}');
 };

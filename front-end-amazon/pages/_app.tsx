@@ -1,4 +1,6 @@
 import '@/accetss/styles/globals.css';
+import AuthProvider from '@/providers/auth-provider/AuthProvider';
+import { TypeComponentAuthFields } from '@/providers/auth-provider/auth-page.types';
 import { persistor, store } from '@/store/store';
 import { QueryClient } from '@tanstack/react-query';
 import { QueryClientProvider } from '@tanstack/react-query/build/lib/QueryClientProvider';
@@ -14,12 +16,17 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps & TypeComponentAuthFields) {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Component {...pageProps} />
+          <AuthProvider Component={{ isOnlyUser: Component.isOnlyUser }}>
+            <Component {...pageProps} />
+          </AuthProvider>
         </PersistGate>
       </Provider>
     </QueryClientProvider>
