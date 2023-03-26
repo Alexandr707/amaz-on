@@ -9,6 +9,7 @@ const colors = {
   secondary: '#161d25',
   aqua: '#268697',
   'bg-color': '#f2f2f5',
+  red: twColors.red[400],
 };
 
 module.exports = {
