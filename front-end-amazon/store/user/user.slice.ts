@@ -1,45 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+import { getFromLocalStorage } from './../../utils/local-storage';
 import { checkAuth, login, logout, register } from './user.actions';
 import { IInitialState } from './user.interface';
 
-const initialState: IInitialState={
-  user: localStorage.getItem('user')?JSON.parse(localStorage.getItem('user') as string): null,
-  isLoading:false
-}
+const initialState: IInitialState = {
+  user: getFromLocalStorage('user'),
+  isLoading: false,
+};
 
 export const userSlice = createSlice({
-  name:'user',
+  name: 'user',
   initialState,
-  reducers:{},
-  extraReducers:(builder) => {
+  reducers: {},
+  extraReducers: builder => {
     builder
-      .addCase(register.pending,(state) => {
-        state.isLoading =true
+      .addCase(register.pending, state => {
+        state.isLoading = true;
       })
-      .addCase(register.fulfilled,(state,action) => {
-        state.isLoading =false
-        state.user = action.payload.user
+      .addCase(register.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
       })
-      .addCase(register.rejected,(state) => {
-        state.isLoading =false
+      .addCase(register.rejected, state => {
+        state.isLoading = false;
       })
-      .addCase(login.pending,(state) => {
-        state.isLoading =true
+      .addCase(login.pending, state => {
+        state.isLoading = true;
       })
-      .addCase(login.fulfilled,(state,action) => {
-        state.isLoading =false
-        state.user = action.payload.user
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.user;
       })
-      .addCase(login.rejected,(state) => {
-        state.isLoading =false
+      .addCase(login.rejected, state => {
+        state.isLoading = false;
       })
-      .addCase(logout.fulfilled,(state) => {
-        state.isLoading= false
-        state.user = null
+      .addCase(logout.fulfilled, state => {
+        state.isLoading = false;
+        state.user = null;
       })
-      .addCase(checkAuth.fulfilled,(state,action) => {
-        state.user = action.payload.user
-      })
-
-  }
-})
+      .addCase(checkAuth.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+      });
+  },
+});
