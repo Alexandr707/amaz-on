@@ -7,6 +7,7 @@ export interface IProduct {
   slug: string;
   description: string;
   price: number;
+  rating:number;
   reviews: IReview[];
   images: string[];
   createdAt: string;

@@ -16,6 +16,13 @@ export const ReviewService = {
     });
   },
 
+  async getAverageByProduct(productId: number | string) {
+    return instance<number>({
+      url: `${REVIEWS}/avarage-by-product/${productId}`,
+      method: 'GET',
+    });
+  },
+
   async leave(productId: number, data: TypeData) {
     return instance<IReview>({
       url: `${REVIEWS}/leave/${productId}`,

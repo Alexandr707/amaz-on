@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { instance } from '@/api/api.interceptor';
 import Cookie from 'js-cookie';
 
 import { getContentType } from './../../api/api.helper';
@@ -10,7 +10,7 @@ import { saveToStorage } from './auth.helper';
 
 export const AuthService = {
   async main(type: 'login' | 'register', data: IEmailPassword) {
-    const response = await axios<IAuthResponse>({
+    const response = await instance<IAuthResponse>({
       url: `/auth/${type}`,
       method: 'POST',
       data,
@@ -24,7 +24,7 @@ export const AuthService = {
   async getNewToken() {
     const refreshToken = Cookie.get('refresh-token');
 
-    const response = await axios.post<string, { data: IAuthResponse }>(
+    const response = await instance.post<string, { data: IAuthResponse }>(
       process.env.SERVER_URL + 'auth/login/access-token',
       { refreshToken },
       { headers: getContentType() },
