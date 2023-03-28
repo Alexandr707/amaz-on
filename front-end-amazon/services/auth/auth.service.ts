@@ -4,7 +4,7 @@ import Cookie from 'js-cookie';
 import { getContentType } from './../../api/api.helper';
 import {
   IAuthResponse,
-  IEmailPassword,
+  IEmailPassword
 } from './../../store/user/user.interface';
 import { saveToStorage } from './auth.helper';
 
@@ -22,10 +22,10 @@ export const AuthService = {
   },
 
   async getNewToken() {
-    const refreshToken = Cookie.get('refresh-token');
+    const refreshToken = Cookie.get('refreshToken');
 
     const response = await instance.post<string, { data: IAuthResponse }>(
-      process.env.SERVER_URL + 'auth/login/access-token',
+      process.env.SERVER_URL + '/auth/login/access-token',
       { refreshToken },
       { headers: getContentType() },
     );

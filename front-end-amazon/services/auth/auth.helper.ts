@@ -14,8 +14,8 @@ export const getAccessToken = () => {
 };
 
 export const getRefreshToken = () => {
-  const accessToken = Cookie.get(TokenType.refresh);
-  return accessToken || null;
+  const refreshToken = Cookie.get(TokenType.refresh);
+  return refreshToken || null;
 };
 
 export const getUserFromStorage = () => {

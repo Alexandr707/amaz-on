@@ -1,19 +1,21 @@
 import { instance } from '@/api/api.interceptor';
-import { IProduct } from '@/types/product.interface';
+import { IProduct, TypePaginationProducts } from '@/types/product.interface';
 
 import {
   PRODUCTS,
   TypeProductData,
-  TypeProductDataFilter,
+  TypeProductDataFilter
 } from './product.types';
 
 export const ProductService = {
   async getAll(queryData: TypeProductDataFilter = {}) {
-    return instance<IProduct[]>({
+    const { data } = await instance<TypePaginationProducts>({
       url: PRODUCTS,
       method: 'GET',
       params: queryData,
     });
+
+    return data;
   },
 
   async getSimilar(productId: number | string) {

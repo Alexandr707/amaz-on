@@ -44,6 +44,9 @@ module.exports = {
         opacity: 'animationOpacity .5s ease-in-out',
         scaleIn: 'scaleIn .35s ease-in-out',
       },
+      gridTemplateColumns:{
+        'layout': '1fr 4fr'
+      }
     },
   },
   plugins: [],

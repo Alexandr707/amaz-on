@@ -5,6 +5,7 @@ import { useAuth } from './useAuth';
 
 export const useAuthRedirect = () => {
   const { user } = useAuth();
+  
 
   const { replace } = useRouter();
 

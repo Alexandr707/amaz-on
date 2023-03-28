@@ -7,23 +7,25 @@ import { RiShoppingCartFill, RiShoppingCartLine } from 'react-icons/ri';
 const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
   const { profile } = useProfile();
 
-  const { invalidateQueries } = useQueryClient();
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation(
     ['toggle favorite'],
     () => UserService.toogleFavorites(productId),
     {
       onSuccess() {
-        invalidateQueries(['get profile']);
+        queryClient.invalidateQueries(['get profile']);
       },
     },
   );
 
-  const isExist = profile.favorites.some(favorite => favorite.id === productId);
+  if (!profile) return null;
+
+  const isExist = profile.favorites?.some(favorite => favorite.id === productId);
 
   return (
     <div>
-      <button onClick={() => mutate()}>
+      <button onClick={() => mutate()} className='text-secondary'>
         {isExist ? <RiShoppingCartFill /> : <RiShoppingCartLine />}
       </button>
     </div>

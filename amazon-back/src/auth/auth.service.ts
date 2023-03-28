@@ -1,15 +1,13 @@
+import { faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';
 import {
-  BadRequestException,
-  UnauthorizedException,
-  NotFoundException,
+  BadRequestException, NotFoundException, UnauthorizedException
 } from '@nestjs/common/exceptions';
-import { faker } from '@faker-js/faker';
+import { JwtService } from '@nestjs/jwt';
+import { User } from '@prisma/client';
 import { hash, verify } from 'argon2';
 import { PrismaService } from '../prisma.service';
 import { AuthDto } from './dto/auth.dto';
-import { JwtService } from '@nestjs/jwt';
-import { User } from '@prisma/client';
 
 @Injectable()
 export class AuthService {
@@ -69,11 +67,11 @@ export class AuthService {
   private async issueToken(userId: string) {
     const data = { id: userId };
 
-    const accesToken = this.jwt.sign(data, { expiresIn: '1h' });
+    const accessToken = this.jwt.sign(data, { expiresIn: '1h' });
 
     const refreshToken = this.jwt.sign(data, { expiresIn: '7d' });
 
-    return { accesToken, refreshToken };
+    return { accessToken, refreshToken };
   }
 
   private returnUserFields(user: User) {

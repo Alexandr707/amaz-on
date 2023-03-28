@@ -24,10 +24,10 @@ AxiosError<{ __isRetry?: boolean }>;
 instance.interceptors.response.use(
   config => config,
   async err => {
-    const originalRequest = err.config;
+    const originalRequest= err.config;
 
     if (
-      (err.response?.status === 401 ||
+      (err?.response?.status === 401 ||
         errorCatch(err) === 'jwt expired' ||
         errorCatch(err) === 'jwt must be provided') &&
       err.config &&

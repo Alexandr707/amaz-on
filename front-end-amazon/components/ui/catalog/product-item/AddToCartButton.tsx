@@ -8,13 +8,14 @@ const AddToCartButton: FC<{ product: IProduct }> = ({ product }) => {
   const { addToCart, removeFromCart } = useActions();
   const { items } = useCart();
 
-  const currentElemsent = items.find(
+  const currentElemsent = items?.find(
     cartItem => cartItem.product.id === product.id,
   );
 
   return (
     <div>
       <button
+      className='text-primary'
         onClick={() =>
           currentElemsent
             ? removeFromCart({ id: currentElemsent.id })
