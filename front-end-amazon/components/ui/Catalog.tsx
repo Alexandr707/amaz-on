@@ -11,27 +11,27 @@ import Loader from './Loader';
 import SortDropdown from './product-item/SortDropdown';
 
 interface ICatalog {
-  data:TypePaginationProducts
+  data: TypePaginationProducts;
   title?: string;
 }
 
-const Catalog: FC<ICatalog> = ({
-  data,
-  title,
-}) => {
+const Catalog: FC<ICatalog> = ({ data, title }) => {
   const [sortType, setSortType] = useState<EnumProductSort>(
     EnumProductSort.NEWEST,
   );
   const [page, setPage] = useState<number>(1);
 
-  const {data:response, isLoading} = useQuery(['product', sortType,page], () =>
-    ProductService.getAll({
-      page,
-      perPage: 4,
-      sort: sortType,
-    }),{
-      initialData:data
-    }
+  const { data: response, isLoading } = useQuery(
+    ['product', sortType, page],
+    () =>
+      ProductService.getAll({
+        page,
+        perPage: 4,
+        sort: sortType,
+      }),
+    {
+      initialData: data,
+    },
   );
 
   if (isLoading) return <Loader />;
@@ -48,9 +48,16 @@ const Catalog: FC<ICatalog> = ({
             ))}
           </div>
           <div className='text-center mt-10'>
-            <Button variant='orange' size='sm' onClick={() => setPage(page + 1)}>
-              Load more
-            </Button>
+            {Array.from({ length: response.length / 4 }).map((_, idx) => (
+              <Button
+                key={idx}
+                variant={page === idx + 1? 'orange':'white'}
+                size='sm'
+                onClick={() => setPage(page + 1)}
+              >
+                {idx + 1}
+              </Button>
+            ))}
           </div>
         </>
       ) : (

@@ -45,7 +45,8 @@ module.exports = {
         scaleIn: 'scaleIn .35s ease-in-out',
       },
       gridTemplateColumns:{
-        'layout': '1fr 4fr'
+        'layout': '1fr 4fr',
+        'header':'1fr 3fr 1.2fr'
       }
     },
   },
