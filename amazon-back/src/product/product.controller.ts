@@ -8,7 +8,7 @@ import {
   Post,
   Put,
   Query,
-  UsePipes,
+  UsePipes
 } from '@nestjs/common';
 import { ValidationPipe } from '@nestjs/common/pipes';
 import { Auth } from 'src/auth/decorators/auth.decorator';

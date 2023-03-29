@@ -1,11 +1,13 @@
+import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { UserService } from '@/services/user.service';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { FC } from 'react';
-import { RiShoppingCartFill, RiShoppingCartLine } from 'react-icons/ri';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
   const { profile } = useProfile();
+  const { user } = useAuth();
 
   const queryClient = useQueryClient();
 
@@ -19,14 +21,16 @@ const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
     },
   );
 
-  if (!profile) return null;
+  if (!user) return null;
 
-  const isExist = profile.favorites?.some(favorite => favorite.id === productId);
+  const isExist = profile.favorites?.some(
+    favorite => favorite.id === productId,
+  );
 
   return (
     <div>
-      <button onClick={() => mutate()} className='text-secondary'>
-        {isExist ? <RiShoppingCartFill /> : <RiShoppingCartLine />}
+      <button onClick={() => mutate()} className='text-primary'>
+        {isExist ? <AiFillHeart /> : <AiOutlineHeart />}
       </button>
     </div>
   );

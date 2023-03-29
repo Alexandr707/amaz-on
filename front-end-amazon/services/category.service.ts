@@ -1,7 +1,7 @@
 import { instance } from '@/api/api.interceptor';
 import { ICategory } from '@/types/category.interface';
 
-const CATEGORYS = 'categorys';
+const CATEGORYS = 'categories';
 
 export const CategoryService = {
   async getAll() {

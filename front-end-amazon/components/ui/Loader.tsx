@@ -1,17 +1,22 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
-const Loader: FC<PropsWithChildren<unknown>> = () => {
+interface ILoder{
+  width?:number
+  height?:number
+}
+
+const Loader: FC<ILoder> = ({height = 100, width = 100}) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       style={{
-        margin: 'auto',
-        background: 'rgb(255, 255, 255)',
+        background: 'transparent',
         display: 'block',
         shapeRendering: 'auto',
+
       }}
-      width='100px'
-      height='100px'
+      width={`${width}px`}
+      height={`${height}px`}
       viewBox='0 0 100 100'
       preserveAspectRatio='xMidYMid'
     >

@@ -16,7 +16,7 @@ const SortDropdown: FC<ISortDropdown> = ({ sortType, setSortType }) => {
         value={sortType}
         onChange={e => setSortType(e.target.value as any)}
       >
-        <option value=''>Please choose&hellip;</option>
+        <option value='' disabled>Please choose&hellip;</option>
         {(
           Object.keys(EnumProductSort) as Array<keyof typeof EnumProductSort>
         ).map(key => (

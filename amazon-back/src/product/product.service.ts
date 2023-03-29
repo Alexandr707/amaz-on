@@ -68,7 +68,7 @@ export class ProductService {
 
     return {
       products,
-      length: this.prisma.product.count({ where: prismaSearchTermFilter }),
+      length: await this.prisma.product.count({ where: prismaSearchTermFilter }),
     };
   }
 

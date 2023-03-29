@@ -17,7 +17,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
     <div className='mb-2 animate-scaleIn'>
       <div className='bg-white rounded-xl relative overflow-hidden'>
 
-        <div className='absolute flex flex-col-reverse top-2 right-3 z-10'>
+        <div className='absolute flex flex-col top-2 right-3 z-10'>
         <DynamicFavoriteButton productId={product.id} />
         <AddToCartButton product={product} />
         </div>

@@ -10,7 +10,7 @@ const Search: FC = () => {
     setSearch(e.target.value);
   };
   const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.code === '13') onSubmit();
+    if (e.key === 'Enter') onSubmit();
   };
 
   const onSubmit = () => {
