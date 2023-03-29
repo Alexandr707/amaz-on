@@ -8,7 +8,7 @@ interface ISortDropdown {
 
 const SortDropdown: FC<ISortDropdown> = ({ sortType, setSortType }) => {
   return (
-    <div className='w-80 ml-auto mb-6 relative border border-gray text-gray-800 bg-white shadow-lg'>
+    <div className='w-48 ml-auto mb-6 relative border border-gray text-gray-800 bg-white shadow-lg'>
       <select
         className='appearance-none w-full  py-1 px-2 bg-white'
         name='whatever'

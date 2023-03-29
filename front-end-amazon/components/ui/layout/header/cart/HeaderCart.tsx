@@ -25,7 +25,7 @@ const HeaderCart: FC = () => {
         onClick={() => setIsShow(!isShow)}
       />
       {isShow && (
-        <div className='absolute top-[4.2rem] w-80 -left-[13.8rem] bg-secondary rounded-xl px-5 py-3 text-sm text-white z-20'>
+        <div className='absolute top-[4.2rem] w-80 -left-[13.8rem] bg-secondary rounded-xl px-5 py-3 text-sm text-white'>
           <div className='font-normal text-lg mb-5'>My cart</div>
           <div className='cart'>
             {items.length ? (

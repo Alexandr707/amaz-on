@@ -4,7 +4,7 @@ import { ICategory } from '@/types/category.interface';
 import { IProduct } from '@/types/product.interface';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 
-import Catalog from '@ui/Catalog';
+import Favorites from '@ui/Favorites';
 import Layout from '@ui/layout/Layout';
 import Meta from '@ui/Meta';
 
@@ -12,10 +12,12 @@ const CategoryPage: NextPage<{
   products: IProduct[];
   category: ICategory;
 }> = ({ category, products }) => {
+  console.log({ category, products });
+  
   return (
     <Meta title={category.name}>
       <Layout>
-        <Catalog
+        <Favorites
           data={{ products, length: products.length }}
           title={category.name}
         />

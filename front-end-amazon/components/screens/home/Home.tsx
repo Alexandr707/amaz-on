@@ -11,12 +11,6 @@ const Home: FC<TypePaginationProducts> = ({ products, length }) => {
   return (
     <Meta title='Home'>
       <Layout>
-        <button
-          className='hover:text-primary transition-all duration-300'
-          onClick={() => logout()}
-        >
-          Logout
-        </button>
         <Catalog data={{products, length}} title='Fresh produts' />
       </Layout>
     </Meta>

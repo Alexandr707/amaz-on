@@ -20,7 +20,7 @@ const Search: FC = () => {
   };
 
   return (
-    <div className='relative flex items-center w-full px-2 '>
+    <div className='relative flex items-center w-full sm:px-2 shrink'>
       <input
         type='text'
         value={search}

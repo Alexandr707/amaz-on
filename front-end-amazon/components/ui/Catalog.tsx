@@ -51,6 +51,7 @@ const Catalog: FC<ICatalog> = ({ data, title }) => {
                 variant={page === idx + 1 ? 'orange' : 'white'}
                 size='sm'
                 onClick={() => setPage(idx + 1)}
+                className='mx-2'
               >
                 {idx + 1}
               </Button>

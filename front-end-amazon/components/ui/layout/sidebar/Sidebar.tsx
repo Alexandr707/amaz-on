@@ -23,24 +23,25 @@ const Sidebar: FC = () => {
   const { logout } = useActions();
 
   return (
-    <aside className='bg-secondary flex flex-col justify-between h-[calc(100vh - 91px)]'>
+    <aside className='bg-secondary flex flex-col justify-between h-full'>
       <div>
         {isLoading ? (
           <Loader />
         ) : data ? (
           <>
-            <div className='text-xl text-white mt-4 mb-6'>Categories:</div>
+            <div className='text-xl text-white mt-4 mb-6 px-10'>Categories:</div>
             <ul>
               {data.map(category => (
                 <li key={category.id}>
                   <Link
+                  title={category.name}
                     className={clsx(
-                      'block text-md my-3 px-10 hover:text-primary transition-colors duration-200',
-                      asPath === `/category/${category}`
+                      'block text-md my-5 px-10 hover:text-primary transition-colors duration-200 whitespace-nowrap text-ellipsis overflow-hidden',
+                      asPath === `/category/${category.slug}`
                         ? 'text-primary'
                         : 'text-white',
                     )}
-                    href={`/category/${category}`}
+                    href={`/category/${category.slug}`}
                   >
                     {category.name}
                   </Link>
@@ -55,7 +56,7 @@ const Sidebar: FC = () => {
       {!!user && (
         <button
           onClick={() => logout()}
-          className='text-white flex items-center ml-10 mb--10 py-2'
+          className='text-white hover:text-primary transition-colors duration-200 flex items-center ml-10 mb-8 py-2'
         >
           <FiLogOut />
           <span className='ml-2'>Logout</span>

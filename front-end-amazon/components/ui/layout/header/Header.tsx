@@ -9,7 +9,7 @@ import Search from './Search';
 
 const Header: FC<PropsWithChildren<unknown>> = () => {
   return (
-    <div className='bg-secondary w-full py-6 px-6 grid grid-cols-header z-10'>
+    <div className='relative bg-secondary w-full py-6 px-6 grid grid-cols-header z-50'>
       <Link href={'/'}>
         <Image
           priority
@@ -20,7 +20,7 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
         />
       </Link>
       <Search />
-      <div className='flex items-center justify-end gap-10'>
+      <div className='flex items-center justify-end lg:gap-10 gap-2'>
         <Link href='/favorites' className='text-white'>
           <AiOutlineHeart size={28} />
         </Link>
