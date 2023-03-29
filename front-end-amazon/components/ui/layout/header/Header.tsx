@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC, PropsWithChildren } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
+import HeaderCart from './cart/HeaderCart';
+import HeaderProfile from './headerProfile';
+import Search from './Search';
 
 const Header: FC<PropsWithChildren<unknown>> = () => {
   return (
@@ -16,12 +19,12 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
         />
       </Link>
       <Search />
-      <div className='items-center justify-end gap-10'>
+      <div className='flex items-center justify-end gap-10'>
         <Link href='/favorites' className='text-white'>
           <AiOutlineHeart size={28} />
         </Link>
-        <HeartCart />
-        <Headerprofile />
+        <HeaderCart />
+        <HeaderProfile />
       </div>
     </div>
   );
