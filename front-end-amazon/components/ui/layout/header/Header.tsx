@@ -20,7 +20,7 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
         />
       </Link>
       <Search />
-      <div className='flex items-center justify-end lg:gap-10 gap-2'>
+      <div className='flex items-center justify-end lg:gap-6 gap-2'>
         <Link href='/favorites' className='text-white'>
           <AiOutlineHeart size={28} />
         </Link>

@@ -2,7 +2,7 @@ import { Prisma } from '@prisma/client';
 import { returnReviewObject } from '../review/return-review.object';
 import { returnCategoryObject } from './../category/return-category.object';
 
-export const returnProductobject: Prisma.ProductSelect = {
+export const returnProductObject: Prisma.ProductSelect = {
   id: true,
   images: true,
   description: true,
@@ -18,7 +18,7 @@ export const returnProductobject: Prisma.ProductSelect = {
   },
 };
 
-export const returnProductobjectFullest: Prisma.ProductSelect = {
-  ...returnProductobject,
+export const returnProductObjectFullest: Prisma.ProductSelect = {
+  ...returnProductObject,
   
 };

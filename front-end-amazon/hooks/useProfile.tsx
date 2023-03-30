@@ -20,5 +20,8 @@ export const useProfile = () => {
     enabled: !!user
   });
 
+  console.log(data);
+  
+
   return { profile: data || ({} as IFullUser) };
 };

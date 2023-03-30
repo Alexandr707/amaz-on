@@ -34,7 +34,7 @@ const Sidebar: FC = () => {
               {data.map(category => (
                 <li key={category.id}>
                   <Link
-                  title={category.name}
+                  title={category.slug}
                     className={clsx(
                       'block text-md my-5 px-10 hover:text-primary transition-colors duration-200 whitespace-nowrap text-ellipsis overflow-hidden',
                       asPath === `/category/${category.slug}`
@@ -43,7 +43,7 @@ const Sidebar: FC = () => {
                     )}
                     href={`/category/${category.slug}`}
                   >
-                    {category.name}
+                    {category.slug}
                   </Link>
                 </li>
               ))}

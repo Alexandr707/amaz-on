@@ -7,7 +7,7 @@ type TypeData = {
   email: string;
   password?: string;
   name?: string;
-  avatarUrl?: string;
+  avatarURL?: string;
   phone?: string;
 };
 

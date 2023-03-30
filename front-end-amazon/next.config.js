@@ -6,7 +6,7 @@ const nextConfig = {
     SERVER_URL: process.env.SERVER_URL,
   },
   images:{
-    domains:['loremflickr.com']
+    domains:['loremflickr.com','cloudflare-ipfs.com']
   }
 };
 

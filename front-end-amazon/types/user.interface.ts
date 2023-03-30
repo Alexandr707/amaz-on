@@ -4,11 +4,11 @@ export interface IUser {
   id: number;
   email: string;
   name: string;
-  avatarUrl: string;
+  avatarURL: string;
   phone: string;
 }
 
 export interface IFullUser extends IUser{
   favorites: IProduct[]
-  orders: IOrder[]
+  OrderS: IOrder[]
 }

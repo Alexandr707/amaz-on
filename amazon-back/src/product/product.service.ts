@@ -5,7 +5,7 @@ import { PrismaService } from './../prisma.service';
 import { generateSlug } from './../utils/generate-slug';
 import { EnumProductSort, GetAllProductsDto } from './dto/get-all-product.dto';
 import { ProductDto } from './dto/product.dto';
-import { returnProductobject } from './return-product.object';
+import { returnProductObject } from './return-product.object';
 
 @Injectable()
 export class ProductService {
@@ -63,7 +63,7 @@ export class ProductService {
       orderBy: prismaSort,
       skip,
       take: perPage,
-      select:returnProductobject
+      select:returnProductObject
     });
 
     return {
@@ -110,7 +110,7 @@ export class ProductService {
       where: {
         id,
       },
-      select: returnProductobject,
+      select: returnProductObject,
     });
 
     if (!product) throw new NotFoundException('Produc not fouund');
@@ -123,7 +123,7 @@ export class ProductService {
       where: {
         slug,
       },
-      select: returnProductobject,
+      select: returnProductObject,
     });
 
     if (!product) throw new NotFoundException('Produc not fouund');
@@ -138,7 +138,7 @@ export class ProductService {
           slug: categorySlug,
         },
       },
-      select: returnProductobject,
+      select: returnProductObject,
     });
 
     if (!product) throw new NotFoundException('Produc not fouund');
@@ -151,7 +151,7 @@ export class ProductService {
       where: {
         id,
       },
-      select: returnProductobject,
+      select: returnProductObject,
     });
 
     if (!currentProduct) throw new NotFoundException('Produc not fouund');

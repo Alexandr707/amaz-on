@@ -26,7 +26,9 @@
     "react-simple-star-rating": "^5.1.7",
     "redux-persist": "^6.0.0",
     "sass": "^1.60.0",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "uuid": "^9.0.0",
+    "yookassa": "^0.1.1"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
